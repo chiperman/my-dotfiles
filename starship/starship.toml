@@ -1,22 +1,23 @@
-# First prompt
-[username]
-format = "[$user]($style) @ "
-style_user = "#E2A0D0"
-style_root = "bold red"
-show_always = true
+# 关闭提示符上方的空行
+add_newline = false
 
-# makes prompt a single line
+# 强制单行显示：将此项设为 true 即可取消换行
 [line_break]
 disabled = true
 
-[cmd_duration]
-format = '[took $duration](fg:#bf5700) '
+# 提示符开头：粉紫色用户名
+[username]
+format = "[$user]($style) "
+style_user = "#E2A0D0"
+show_always = true
 
-[localip]
-ssh_only = false
-format = '[$localipv4](bold red) '
-disabled = true
+# 路径显示：紫色调
+[directory]
+style = "purple"
+truncate_to_repo = true
+truncation_symbol = "…/"
 
+# 电池状态：仅在低于 50% 时显示
 [battery]
 full_symbol = '🔋'
 charging_symbol = '⚡️'
@@ -31,36 +32,22 @@ style = 'bold red'
 threshold = 50
 style = 'bold yellow'
 
-[[battery.display]]
-threshold = 90
-style = 'bold green'
+# 命令耗时：灰色斜体
+[cmd_duration]
+format = '[took $duration](italic fg:gray) '
 
-[directory]
-style = "purple"
-truncation_length = 0
-truncate_to_repo = true
-truncation_symbol = " : "
-
+# Git 状态：极简图标
 [git_branch]
-always_show_remote = true
-format = 'on [$symbol$branch[:$remote_branch](fg:#00CDFF)]($style) '
-
-[git_commit]
-commit_hash_length = 4
-tag_symbol = '🔖 '
+symbol = " "
+style = "bold purple"
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style) )'
-conflicted = '=$count '
-ahead = '⇡${count}'
-behind = '⇣${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-up_to_date = ''
-untracked = '[?$count](purple) '
-stashed = '📦$count '
-modified = '[📝$count](cyan) '
-staged = '[+$count](green) '
-renamed = '»$count '
-deleted = '✘$count '
-typechanged = ""
-windows_starship = '/mnt/c/Users/username/scoop/apps/starship/current/starship.exe'
+format = '([\[$all_status\]]($style) )'
+modified = '📝'
+untracked = '?'
+stashed = '📦'
+
+# 结尾符号：直接跟在路径或 Git 状态后面
+[character]
+success_symbol = "[❯](bold green) "
+error_symbol = "[❯](bold red) "
