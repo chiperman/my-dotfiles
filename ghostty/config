@@ -16,7 +16,7 @@ background-blur = 20
 macos-titlebar-style = tabs
 
 # 非活跃分屏的透明度（让你一眼看出焦点在哪）
-unfocused-split-opacity = 0.5
+unfocused-split-opacity = 0.85
 
 # --- 字体 ---
 font-family = "Maple Mono NF CN"
