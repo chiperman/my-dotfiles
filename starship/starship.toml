@@ -43,9 +43,11 @@ style = "bold purple"
 
 [git_status]
 format = '([\[$all_status\]]($style) )'
-modified = '📝'
-untracked = '?'
-stashed = '📦'
+staged = '+$count'
+modified = '📝$count'
+deleted = '-$count'
+untracked = '?$count'
+stashed = '📦$count'
 
 # 结尾符号：直接跟在路径或 Git 状态后面
 [character]
